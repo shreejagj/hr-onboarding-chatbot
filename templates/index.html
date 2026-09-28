@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}HR Assist | Home{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-copy">
+        <p class="eyebrow">SMART HR ONBOARDING</p>
+        <h1>Your virtual HR assistant for a smoother first day.</h1>
+        <p class="lead">Get quick answers about company policies, required documents, training, leave and onboarding steps.</p>
+        <div class="actions">
+            <a class="btn primary" href="{{ url_for('chat') }}">Start Chat</a>
+            <a class="btn secondary" href="{{ url_for('onboarding') }}">View Checklist</a>
+        </div>
+    </div>
+    <div class="hero-card">
+        <div class="bot-icon">HR</div>
+        <h3>How can I help?</h3>
+        <p>Ask about policies, documents, working hours, leave or your onboarding process.</p>
+        <div class="mini-message">“What documents do I need?”</div>
+        <div class="mini-answer">You can ask me anytime.</div>
+    </div>
+</section>
+<section class="cards">
+    <div class="feature"><b>💬 HR Chatbot</b><p>Ask questions and get instant answers from the HR knowledge base.</p></div>
+    <div class="feature"><b>✅ Onboarding Checklist</b><p>Track your progress from document submission to completion.</p></div>
+    <div class="feature"><b>📚 Policy Knowledge Base</b><p>Find company rules, FAQs and onboarding information in one place.</p></div>
+</section>
+{% endblock %}

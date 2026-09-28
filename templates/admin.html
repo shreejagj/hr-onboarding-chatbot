@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<section class="page-head admin-head">
+    <div><p class="eyebrow">HR ADMIN</p><h1>Knowledge Base Manager</h1><p>Add and manage FAQs and onboarding steps.</p></div>
+    <a class="btn secondary" href="{{ url_for('admin_logout') }}">Logout</a>
+</section>
+
+<div class="admin-grid">
+<section class="admin-card">
+    <h2>Add FAQ</h2>
+    <form id="faqForm" class="form-grid">
+        <input id="faqQuestion" placeholder="Question" required>
+        <input id="faqCategory" placeholder="Category" value="General">
+        <textarea id="faqAnswer" placeholder="Answer" required></textarea>
+        <button class="btn primary">Add FAQ</button>
+    </form>
+    <h2>Existing FAQs</h2>
+    <div id="faqList">
+    {% for faq in faqs %}
+        <div class="admin-item" id="faq-{{ faq.id }}">
+            <div><strong>{{ faq.question }}</strong><small>{{ faq.category }}</small><p>{{ faq.answer }}</p></div>
+            <button class="danger" onclick="deleteFaq({{ faq.id }})">Delete</button>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+
+<section class="admin-card">
+    <h2>Add onboarding step</h2>
+    <form id="checkForm" class="form-grid">
+        <input id="checkTitle" placeholder="Step title" required>
+        <textarea id="checkDescription" placeholder="Description"></textarea>
+        <button class="btn primary">Add Step</button>
+    </form>
+    <h2>Existing steps</h2>
+    <div id="checkList">
+    {% for item in checklist %}
+        <div class="admin-item" id="check-{{ item.id }}">
+            <div><strong>{{ item.title }}</strong><p>{{ item.description }}</p></div>
+            <button class="danger" onclick="deleteChecklist({{ item.id }})">Delete</button>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+</div>
+{% endblock %}

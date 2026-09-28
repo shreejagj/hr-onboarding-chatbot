@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HR Onboarding Assistant{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="{{ url_for('index') }}">HR<span>Assist</span></a>
+    <div class="nav-links">
+        <a href="{{ url_for('chat') }}">Chat</a>
+        <a href="{{ url_for('onboarding') }}">Onboarding</a>
+        <a href="{{ url_for('admin') if session.get('admin') else url_for('admin_login') }}">Admin</a>
+    </div>
+</nav>
+<main>{% block content %}{% endblock %}</main>
+<footer>HR Assist • Employee Onboarding Chatbot</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

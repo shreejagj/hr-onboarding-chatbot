@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<div class="auth-card">
+    <p class="eyebrow">ADMIN</p>
+    <h1>HR Admin Login</h1>
+    <p>Manage the chatbot knowledge base and onboarding checklist.</p>
+    {% if error %}<div class="alert">{{ error }}</div>{% endif %}
+    <form method="post" class="form-grid">
+        <input name="username" placeholder="Username" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <button class="btn primary" type="submit">Login</button>
+    </form>
+    <small>Demo credentials: admin / admin123</small>
+</div>
+{% endblock %}

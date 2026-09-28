@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}HR Chatbot{% endblock %}
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">HR ASSISTANT</p>
+    <h1>Ask HR anything</h1>
+    <p>Questions are answered from the company's HR knowledge base.</p>
+</section>
+<div class="chat-layout">
+    <div class="chat-panel">
+        <div id="chatMessages" class="chat-messages">
+            <div class="message bot">Hello! 👋 I'm your HR onboarding assistant. How can I help you?</div>
+        </div>
+        <form id="chatForm" class="chat-form">
+            <input id="chatInput" type="text" placeholder="Type your HR question..." autocomplete="off">
+            <button class="btn primary" type="submit">Send</button>
+        </form>
+    </div>
+    <aside class="suggestions">
+        <h3>Suggested questions</h3>
+        <button onclick="askSuggestion('What documents are required for onboarding?')">Required documents</button>
+        <button onclick="askSuggestion('What are the working hours?')">Working hours</button>
+        <button onclick="askSuggestion('How do I apply for leave?')">Leave policy</button>
+        <button onclick="askSuggestion('What is the probation period?')">Probation period</button>
+        <button onclick="askSuggestion('What training is required?')">Training</button>
+        <button onclick="askSuggestion('How do I contact HR?')">Contact HR</button>
+    </aside>
+</div>
+{% endblock %}

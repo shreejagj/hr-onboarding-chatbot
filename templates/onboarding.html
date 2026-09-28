@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Onboarding Checklist{% endblock %}
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">YOUR JOURNEY</p>
+    <h1>Onboarding checklist</h1>
+    <p>Complete each step to keep track of your onboarding progress.</p>
+</section>
+<div class="progress-box">
+    <div class="progress-label"><span>Progress</span><strong id="progressText">0%</strong></div>
+    <div class="progress"><div id="progressBar"></div></div>
+</div>
+<div class="checklist">
+{% for item in items %}
+    <label class="check-item {% if item.completed %}done{% endif %}">
+        <input type="checkbox" data-id="{{ item.id }}" {% if item.completed %}checked{% endif %}>
+        <span class="checkmark"></span>
+        <span><strong>{{ item.title }}</strong><small>{{ item.description }}</small></span>
+    </label>
+{% endfor %}
+</div>
+{% endblock %}
